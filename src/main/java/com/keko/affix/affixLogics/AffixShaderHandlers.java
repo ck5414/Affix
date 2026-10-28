@@ -33,7 +33,7 @@ public class AffixShaderHandlers {
 
             PostProcessingManager postProcessingManager = VeilRenderSystem.renderer().getPostProcessingManager();
             PostPipeline postPipeline = postProcessingManager.getPipeline(ResourceLocation.fromNamespaceAndPath(Affix.MOD_ID, "style_cubes"));
-            assert postPipeline != null;
+            if (postPipeline == null) return;
             postPipeline.getUniformSafe("amp").setFloat(AffixClient.getJammer().getSound().getAmplitude());
             postPipeline.getUniformSafe("cubeCount").setFloat(AffixConfigs.cubeCount);
             postPipeline.getUniformSafe("primaryColor").setVector(primaryColor.getRed(), primaryColor.getGreen(), primaryColor.getBlue());
@@ -50,7 +50,7 @@ public class AffixShaderHandlers {
 
             PostProcessingManager postProcessingManager = VeilRenderSystem.renderer().getPostProcessingManager();
             PostPipeline postPipeline = postProcessingManager.getPipeline(ResourceLocation.fromNamespaceAndPath(Affix.MOD_ID, "style_waves"));
-            assert postPipeline != null;
+            if (postPipeline == null) return;
             postPipeline.getUniformSafe("amp").setFloat(AffixClient.getJammer().getSound().getAmplitude());
             postPipeline.getUniformSafe("primaryColor").setVector(primaryColor.getRed(), primaryColor.getGreen(), primaryColor.getBlue());
 
@@ -65,7 +65,7 @@ public class AffixShaderHandlers {
         try {
             PostProcessingManager postProcessingManager = VeilRenderSystem.renderer().getPostProcessingManager();
             PostPipeline postPipeline = postProcessingManager.getPipeline(ResourceLocation.fromNamespaceAndPath(Affix.MOD_ID, "mirror"));
-            assert postPipeline != null;
+            if (postPipeline == null) return;
             postPipeline.getUniformSafe("mirrorOffset").setFloat((float) Math.min(Math.PI/2,AffixClient.mirrorOffset));
             Color color = getClientColor();
             postPipeline.getUniformSafe("shaderAccent").setVector(color.getRed(), color.getGreen(), color.getBlue());
@@ -79,7 +79,7 @@ public class AffixShaderHandlers {
         try {
             PostProcessingManager postProcessingManager = VeilRenderSystem.renderer().getPostProcessingManager();
             PostPipeline postPipeline = postProcessingManager.getPipeline(ResourceLocation.fromNamespaceAndPath(Affix.MOD_ID, "accelerator"));
-            assert postPipeline != null;
+            if (postPipeline == null) return;
             Color color = getClientColor();
             postPipeline.getUniformSafe("shaderAccent").setVector(color.getRed(), color.getGreen(), color.getBlue());
             postPipeline.getUniformSafe("tranzitioner").setFloat(Accelerator.TRANZITIONER - AffixClient.acceleratorShaderTranzition);
@@ -94,7 +94,7 @@ public class AffixShaderHandlers {
         try {
             PostProcessingManager postProcessingManager = VeilRenderSystem.renderer().getPostProcessingManager();
             PostPipeline postPipeline = postProcessingManager.getPipeline(ResourceLocation.fromNamespaceAndPath(Affix.MOD_ID, "black_whole"));
-            assert postPipeline != null;
+            if (postPipeline == null) return;
             Color color = getClientColor();
             postPipeline.getUniformSafe("pos").setVector((float) pos.x, (float) pos.y, (float) pos.z);
             postPipeline.getUniformSafe("timer").setFloat(timer);
@@ -111,7 +111,7 @@ public class AffixShaderHandlers {
 
             PostProcessingManager postProcessingManager = VeilRenderSystem.renderer().getPostProcessingManager();
             PostPipeline postPipeline = postProcessingManager.getPipeline(ResourceLocation.fromNamespaceAndPath(Affix.MOD_ID, "whiteblack"));
-            assert postPipeline != null;
+            if (postPipeline == null) return;
             Color color = getClientColor();
             postPipeline.getUniformSafe("shaderAccent").setVector(color.getRed(), color.getGreen(), color.getBlue());
             postPipeline.getUniformSafe("transition").setFloat(AffixClient.transition);

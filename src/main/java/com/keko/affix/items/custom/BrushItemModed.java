@@ -42,6 +42,7 @@ public class BrushItemModed extends Item {
         try {
             ParticleSystemManager manager = VeilRenderSystem.renderer().getParticleManager();
             ParticleEmitter emitter = manager.createEmitter(id);
+            if (emitter == null) return;
             emitter.setPosition(position);
             manager.addParticleSystem(emitter);
         } catch (Exception ignored) {
