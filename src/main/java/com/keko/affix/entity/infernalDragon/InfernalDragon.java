@@ -214,6 +214,7 @@ public class InfernalDragon extends AbstractArrow implements GeoEntity {
         try {
             ParticleSystemManager manager = VeilRenderSystem.renderer().getParticleManager();
             ParticleEmitter emitter = manager.createEmitter(id);
+            if (emitter == null) return;
             emitter.setPosition(position);
             emitter.setParticleSettings(new ParticleSettings(200, 0.1f, 0, 60, 0,
                     new Vector3f(
@@ -232,6 +233,7 @@ public class InfernalDragon extends AbstractArrow implements GeoEntity {
         try {
             ParticleSystemManager manager = VeilRenderSystem.renderer().getParticleManager();
             ParticleEmitter emitter = manager.createEmitter(id);
+            if (emitter == null) return;
             emitter.setPosition(position);
             emitter.setParticleSettings(new ParticleSettings(29, size, 0, 60, 0, this.getDeltaMovement().toVector3f().mul(14).
                     add(
